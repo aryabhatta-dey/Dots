@@ -2,7 +2,7 @@
 There are lots like them but these are mine;)
 Thank you for visiting, hope you find them useful and pleasing!
 
-![Screenshot](https://github.com/aryabhatta-dey/Dots/blob/master/setup.png)
+![Screenshot](https://github.com/aryabhatta-dey/Dots/blob/master/setup.png "Screenshot")
 
 # Workflow
 
