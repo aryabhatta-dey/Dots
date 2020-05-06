@@ -1,0 +1,190 @@
+{
+
+    "layer": "top", // Waybar at top layer
+
+    "height": 30, // Waybar height (to be removed for auto height)
+
+    // Choose the order of the modules
+
+    "modules-left": ["sway/workspaces", "sway/mode"],
+
+    "modules-center": ["sway/window"],
+
+    "modules-right": ["mpd", "custom/alsa", "network", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "custom/weather", "clock", "tray"],
+
+    "sway/mode": {
+
+        "format": "<span style=\"italic\">{}</span>"
+
+    },
+    
+    "tray": {
+
+        // "icon-size": 21,
+
+        "spacing": 10
+
+    },
+
+    "clock": {
+	
+	"format": "{:%a %d %b %I:%M}",
+
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+
+        "format-alt": "{:%H:%M %Y-%m-%d}"
+
+    },
+
+    "cpu": {
+
+        "format": "{usage}% ",
+
+        "tooltip": false
+
+    },
+
+    "memory": {
+
+        "format": "{}% "
+
+    },
+
+    "mpd": {
+
+	"format": "{stateIcon} {consumeIcon}{repeatIcon}{singleIcon}{artist} - {title}",
+
+        "format-stopped": "",
+
+	"format-disconnected": "Disconnected ",
+
+	"interval": 2,
+
+	"consume-icons": {
+
+		"on": " " // Icon shows only when "consume" is on
+
+	},
+
+	"repeat-icons": {
+
+		"on": " "
+
+	},
+
+	"single-icons": {
+
+		"on": "1 "
+
+	},
+
+	"state-icons": {
+
+		"paused": "",
+
+		"playing": ""
+
+	},
+
+	"tooltip-format": "MPD (connected)",
+
+	"tooltip-format-disconnected": "MPD (disconnected)"
+
+    },
+
+    "temperature": {
+
+        "critical-threshold": 80,
+
+        "format": "{temperatureC}°C {icon}",
+
+        "format-icons": ["", "", ""]
+
+    },
+
+    "backlight": {
+
+        "format": "{percent}% {icon}",
+
+        "format-icons": [""]
+
+    },
+
+    "battery": {
+
+        "states": {
+
+            "warning": 30,
+
+            "critical": 15
+
+        },
+
+        "format": "{capacity}% {icon}",
+
+        "format-charging": "{capacity}% ",
+
+        "format-plugged": "{capacity}% ",
+
+        "format-alt": "{time} {icon}",
+
+        "format-icons": ["", "", "", "", ""]
+
+    },
+
+    "battery#bat2": {
+
+        "bat": "BAT2"
+
+    },
+
+    "network": {
+
+        "format-wifi": "{essid} ({signalStrength}%) ",
+
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+
+        "format-linked": "{ifname} (No IP) ",
+
+        "format-disconnected": "Disconnected ⚠",
+
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+
+    },
+
+    "custom/weather": {
+
+        "format": "{}",
+
+        "format-alt": "{alt}  {}",
+
+       "format-alt-click": "on-click",
+
+        "interval": 900,
+
+        "return-type": "json",
+
+        "exec": "~/.config/waybar/modules/weather.sh",
+
+        "exec-if": "ping wttr.in -c1"
+
+    },
+
+    "custom/alsa": {
+
+        "exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/      muted/p; s/.*\\[(.*%)\\].*/    \\1/p'",
+
+        "on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
+
+        "signal": 11,
+
+        "interval": 10,
+
+        "tooltip": false
+
+    },
+
+    "escape": true,
+
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+}
