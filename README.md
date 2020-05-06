@@ -23,6 +23,6 @@ To clear the clipboard contents do **Mod4+z**.
 
 The weather module on the waybar. I took it from https://github.com/Robinhuett/dotfiles/tree/master/.config/waybar and modified it a little.
 
-# To do
+## To do
 
 Try to write a script for automating the show song info feature of [fmui](https://github.com/seebye/fmui). Fmui as it stands is extremely buggy to the point you cannot even search for songs having i in their name or the artist's name without triggering the info screen.
